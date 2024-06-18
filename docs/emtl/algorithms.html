@@ -1,0 +1,1612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>EdgeEmbedding.emtl.algorithms API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>EdgeEmbedding.emtl.algorithms</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from abc import ABC, abstractmethod
+from collections import deque
+from typing import Callable, Union
+
+import torch
+from tqdm import trange, tqdm
+
+from emtl.tasks import Task
+from emtl.metrics import normalized_entropy, average_pearson_product_moment_correlation_coefficient
+from emtl.utils import Logger
+
+
+class DummyLRScheduler:
+    def __init__(self, *args, **kwargs) -&gt; None:
+        pass
+    
+    def step(self, *args, **kwargs) -&gt; None:
+        pass
+
+
+class TrainingAlgorithm(ABC):
+    device: str
+    logger: Logger
+    epochs: int
+    min_adk: float = 1
+
+    def __init__(self,
+                epochs: int,
+                optimizer_fn: Callable[..., torch.optim.Optimizer],
+                optimizer_params: dict[str, any],
+                scheduler_fn: Callable[..., torch.optim.lr_scheduler._LRScheduler] = DummyLRScheduler,
+                scheduler_params: dict[str, any] = {},
+                device: str = &#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;, 
+                rmc_lookback: int = 5,
+                logger: Logger = Logger(),
+                freeze_backbone: bool = False
+                ) -&gt; None:
+        &#39;&#39;&#39;
+        Abstract class to define the common behavior of a training algorithm.
+
+        Args:
+            device (str, optional): device to move data to. Defaults to &#39;cpu&#39;.
+            rmc_lookback (int, optional): epochs window to use to calculate RMC. Defaults to 5.
+        &#39;&#39;&#39;
+        self.epochs = epochs
+        self.optimizer_fn = optimizer_fn
+        self.scheduler_fn = scheduler_fn
+        self.optimizer_params = optimizer_params
+        self.scheduler_params = scheduler_params
+
+        self.device = device
+        self.rmc_lookback = rmc_lookback
+        self.logger = logger
+        self.freeze_backbone = freeze_backbone
+
+        self.losses = {}
+        self.rmcs = {}
+        self.non_blocking_ops = device.lower() != &#39;cpu&#39;
+        self.optimizer_is_configured = False
+    
+
+    def configure_optimizer(self, backbone: torch.nn.Module) -&gt; None:
+        self.optimizer_is_configured = True
+        self.optimizer = self.optimizer_fn(backbone.parameters(), **self.optimizer_params)
+        self.scheduler = self.scheduler_fn(self.optimizer, **self.scheduler_params)
+    
+
+    def reset_optimizers(self, backbone: torch.nn.Module) -&gt; None:
+        self.configure_optimizer(backbone)
+
+    
+    def indipendent_capacity_evaluation(self, backbone: torch.nn.Module, min_t: float = 0.001) -&gt; None:
+        &#39;&#39;&#39;
+        Evaluate the capacity of the model without any dependencies.
+        This method evaluates the capacity based on what percentage of the model&#39;s weights are
+        weakly activated: the more weights are close to 0, the more capacity the model has left.
+        The percentage is that of weights less than one standard deviation from the mean of that layer.
+        Calculations are made layer-wise.
+
+        Args:
+            backbone (torch.nn.Module): model that generates features.
+            min_t (float): minimum threshold to consider; a smaller one won&#39;t be picked.
+        &#39;&#39;&#39;
+        backbone.eval()
+
+        # we keep two counts: the # of small weights, and the # of all weights
+        # for each layer, we find the mean and standard deviation, and count the weigts &lt; 1 standard dev
+        ratios = []
+
+        for _, parameters in backbone.named_parameters():
+            absolute_values = abs(parameters).detach().flatten()
+            mean = torch.mean(absolute_values)
+            std = torch.std(absolute_values)
+            threshold = max(mean - std, min_t)
+
+            small = (absolute_values &lt;= threshold).sum()
+            total = len(absolute_values)
+            ratios.append((small / total).item())
+
+        self.logger.log({&#39;I-Capacity&#39;: sum(ratios) / len(ratios)})
+
+
+    def data_dependent_capacity_evaluation(self, 
+            backbone: torch.nn.Module, 
+            dataloaders: Union[list[torch.utils.data.DataLoader], torch.utils.data.DataLoader]
+            ) -&gt; None:
+        &#39;&#39;&#39;
+        Evaluate the capacity of a model given a representative sample of data.
+        Given a single or multiple dataloaders, it runs through each of them and stacks the predictions 
+        of the model. Then, given those predictions, or features, it computes several capacity metrics.
+        This method may take some time to run.
+
+        Args:
+            backbone (torch.nn.Module): model that generates features.
+            dataloaders (Union[list[torch.utils.data.DataLoader], torch.utils.data.DataLoader]): 
+                a single dataloader or a list of dataloaders.
+        &#39;&#39;&#39;
+        backbone.eval()
+        
+        # make sure you have either one dataset or a list of datasets
+        if not isinstance(dataloaders, list):
+            dataloaders = [dataloaders]
+        outputs = []
+        
+        # now produce and save features for all passed data
+        with torch.no_grad():
+            for dataloader in dataloaders:
+                for inputs, _ in dataloader:
+                    features = backbone(inputs.to(self.device, non_blocking=self.non_blocking_ops))
+                    outputs.append(features.cpu())
+        
+        # create a [d x n] tensor (d = # of features, n = sum of dataloaders lengths)
+        outputs = torch.vstack(outputs).T
+
+        # compute and log capacity metrics
+        entropy = normalized_entropy(outputs, nbins=100)
+        pearson = average_pearson_product_moment_correlation_coefficient(outputs)
+
+        self.logger.log({
+            &#39;Entropy&#39;: entropy,
+            &#39;Correlation&#39;: pearson,
+            &#39;DD-Capacity&#39;: ((pearson - entropy + 1) / 2)
+        })
+
+
+    def algo_dependent_capacity_evaluation(self, min_t: float = 0.01) -&gt; None:
+        &#39;&#39;&#39;
+        Evaluate the capacity of a model given its past performance while training with this algo.
+        This method takes no arguments because it&#39;s using what the algorithm has already computed
+        while training the backbone/heads. 
+        This method simply gives the percentage of tasks for which the RMC is above 0. 
+        Could be improved in the future to consider a threshold.
+        &#39;&#39;&#39;
+        if len(self.rmcs) == 0:
+            self.logger.log({&#39;AD-Capacity&#39;: 1})
+            return
+        
+        positive_count = len([rmc for rmc in self.rmcs.values() if rmc &gt; min_t])
+        total = len(self.rmcs)
+        capacity = positive_count / total
+        
+        # make it no less than min existing one
+        capacity = min(capacity, self.min_adk)
+        self.min_adk = capacity
+
+        self.logger.log({&#39;AD-Capacity&#39;: capacity})
+
+
+    def full_task_eval(self, backbone: torch.nn.Module, task: Task) -&gt; None:
+        &#39;&#39;&#39;
+        Perform a full evaluation of the backbone model.
+        This method takes in either a SimpleTask or a MultiHeadedDatasetTask, and for each task
+        within, performs an evaluation pass. Evaluation is done on both the trainset and the testset.
+
+        Args:
+            backbone (torch.nn.Module): backbone model to evaluate.
+            task (Task): task to evaluate the backbone for.
+        &#39;&#39;&#39;
+        backbone.eval()
+        
+        # compute dictionaries of &lt;metric_name, value&gt; pairs 
+        train_metrics = task.eval(backbone, set=&#39;train&#39;)
+        test_metrics  = task.eval(backbone, set=&#39;test&#39;)
+        rmcs = self.compute_all_rmcs(task.name, train_metrics)
+
+        # rename the dictionary keys to include the main task name (dataset) and split
+        train_metrics = {f&#39;{task.name} train {mname}&#39; : v for mname, v in train_metrics.items()}
+        test_metrics  = {f&#39;{task.name} test {mname}&#39;  : v for mname, v in test_metrics.items()}
+        rmcs          = {f&#39;{mname} RMC&#39; : v for mname, v in rmcs.items()}
+
+        # log all metrics
+        self.logger.log(train_metrics)
+        self.logger.log(test_metrics)
+        self.logger.log(rmcs)
+
+
+    def compute_all_rmcs(self, dataset_name: str, metrics_dict: dict[str, float]) -&gt; dict[str, float]:
+        &#39;&#39;&#39;
+        Compute Residual Model Capacity metrics for all losses in dictionary.
+
+        Args:
+            dataset_name (str): name of the main task / dataset.
+            metrics_dict (dict[str, float]): dictionary that should contain some &#39;... loss&#39; metrics.
+
+        Returns:
+            dict[str, float]: a named dictionary of task losses (named by dataset + task name)
+        &#39;&#39;&#39;
+        rmcs_dict = {}
+
+        for metric_name in metrics_dict:
+            # name could be like &#34;BBox loss&#34; or just &#34;loss&#34;
+            metric_name_components = metric_name.split(&#39; &#39;)
+            mname = metric_name_components[-1]
+            task_name = (&#39; &#39; + metric_name_components[0]) if (len(metric_name_components) == 2) else &#39;&#39;
+
+            # proceed forward only if the metric is indeed a loss
+            if mname == &#39;loss&#39;:
+                loss_value = metrics_dict[metric_name]
+                log_name = f&#39;{dataset_name}{task_name}&#39;
+
+                rmc = self.compute_individual_rmc(log_name, loss_value)
+
+                rmcs_dict[log_name] = rmc
+                self.rmcs[log_name] = rmc
+
+        return rmcs_dict
+
+
+    def compute_individual_rmc(self, log_name: str, loss: float) -&gt; float:
+        &#39;&#39;&#39;
+        Method to compute the Residual Model Capacity with respect to a single task.
+        This method requires the task name to search in its dictionary of saved losses, and the
+        latest loss for that task (which gets saved for the next computation).
+
+        Args:
+            log_name (str): key of the dictionary.
+            loss (float): latest loss value for the key.
+
+        Returns:
+            float: newly computed RMC value (should be saved separately)
+        &#39;&#39;&#39;
+        # first time computing RMC, set it to the max (=1) and store the loss
+        if log_name not in self.losses:
+            self.losses[log_name] = deque([], maxlen=self.rmc_lookback)
+            rmc = 1
+        
+        # as long as len(losses) &lt; rmc_lookback, RMC = 1
+        elif len(self.losses[log_name]) &lt; self.rmc_lookback:
+            rmc = 1
+        
+        # this is the actual computation of RMC
+        else:
+            old_loss = self.losses[log_name][0]
+            rmc = (old_loss - loss) / old_loss
+            rmc = max(0, rmc)
+
+        self.losses[log_name].append(loss)
+        
+        return rmc
+    
+
+    @abstractmethod
+    def execute(self, models: list[torch.nn.Module], tasks: list[Task]) -&gt; None:
+        &#39;&#39;&#39;
+        Abstract method to execute the training algorithm.
+        This method requires a list of tasks and the models to execute them. This behavior may be
+        changed in the future (e.g., using head indices to specify where to route tasks within a 
+        model, or attaching heads to the tasks and sequentially passing through the backbone and 
+        the head).
+
+        Args:
+            models (list[torch.nn.Module]): list of models to execute tasks with.
+            tasks (list[Task]): list of tasks to execute.
+
+        Raises:
+            NotImplementedError: must create a subclass of this and implement the method.
+        &#39;&#39;&#39;
+        raise NotImplementedError()
+
+
+
+class SequentialTraining(TrainingAlgorithm):    
+    def __init__(self,
+                epochs: int,
+                optimizer_fn: Callable[..., torch.optim.Optimizer],
+                optimizer_params: dict[str, any],
+                **kwargs) -&gt; None:
+        &#39;&#39;&#39;
+        Train a model one task at a time.
+        This object will train a model for `epochs` epochs on each one of the given tasks, one task
+        at a time, in the same order they are given. Note that accuracy on earlier tasks may degrade
+        as new tasks are used. 
+
+        Args:
+            epochs (int): number of epochs to train for each task
+        &#39;&#39;&#39;
+        super(SequentialTraining, self).__init__(epochs, optimizer_fn, optimizer_params, **kwargs)
+    
+
+    def execute(self, backbone: torch.nn.Module, tasks: list[Task], epochs_passed: int) -&gt; None:
+        &#39;&#39;&#39;
+        Train the backbone and all the heads in all the tasks.
+
+        Args:
+            backbone (torch.nn.Module): backbone model to train that extracts features.
+            tasks (list[Task]): list of tasks with datasets and specialized heads to train.
+            freeze_backbone (bool): whether to train
+        &#39;&#39;&#39;
+        if not self.optimizer_is_configured:
+            self.configure_optimizer(backbone)
+        
+        # freeze the backbone if specified
+        for param in backbone.parameters():
+            param.requires_grad = not self.freeze_backbone
+
+        # train one task at a time for given epochs
+        for task in tasks:
+            for epoch in trange(epochs_passed, self.epochs + epochs_passed, desc = task.name):
+                backbone.train()
+                is_last_batch = False
+                losses = []
+
+                # full pass over train dataset
+                while not is_last_batch:
+                    # foward + backward pass
+                    self.optimizer.zero_grad()
+                    is_last_batch, loss = task.train_step(backbone)
+
+                    # backbone weights update
+                    losses.append(loss)
+                    self.optimizer.step()
+                
+                # optimizer update
+                self.scheduler.step(sum(losses) / len(losses))
+
+                # log / eval
+                self.full_task_eval(backbone, task)
+                self.indipendent_capacity_evaluation(backbone)
+                self.data_dependent_capacity_evaluation(backbone, [t.testloader for t in tasks])
+                self.algo_dependent_capacity_evaluation()
+                self.logger.increase_step()
+
+        return self.epochs
+
+
+class AlternatingTraining(TrainingAlgorithm):
+    def __init__(self,
+                epochs: int,
+                optimizer_fn: Callable[..., torch.optim.Optimizer],
+                optimizer_params: dict[str, any],
+                **kwargs) -&gt; None:
+        &#39;&#39;&#39;
+        Train a model on multiple tasks, one dataset pass at a time.
+        This object will train a model for `epochs` epochs, where each epoch trains a branch on one
+        given task&#39;s entire dataset. Therefore, given 3 tasks, to make sure each task&#39; dataset is
+        passed 10 times, one should specify 30 epochs.
+
+        Args:
+            epochs (int): number of epochs to train for all task
+            freeze_backbone (bool): whether to train the heads only (True) or also the backbone (False).
+        &#39;&#39;&#39;
+        super(AlternatingTraining, self).__init__(epochs, optimizer_fn, optimizer_params, **kwargs)
+    
+    def execute(self, backbone: torch.nn.Module, tasks: list[Task], epochs_passed: int) -&gt; int:
+        &#39;&#39;&#39;
+        Train the backbone and all the heads in all the tasks.
+
+        Args:
+            backbone (torch.nn.Module): backbone model to train that extracts features.
+            tasks (list[Task]): list of tasks with datasets and specialized heads to train.
+        &#39;&#39;&#39;
+        if not self.optimizer_is_configured:
+            self.configure_optimizer(backbone)
+        
+        # freeze the backbone if specified
+        for param in backbone.parameters():
+            param.requires_grad = not self.freeze_backbone
+
+        for epoch in trange(epochs_passed, self.epochs + epochs_passed, desc = &#39;Epochs&#39;, leave=False):
+            for task in tasks:
+                backbone.train()
+                is_last_batch = False
+                losses = []
+                pbar = tqdm(total=len(task.trainloader), desc=task.name+&#39; train&#39;)
+                
+                # full pass over train dataset
+                while not is_last_batch:
+                    # foward + backward pass
+                    self.optimizer.zero_grad()
+                    is_last_batch, loss = task.train_step(backbone)
+
+                    # backbone weights update
+                    losses.append(loss)
+                    self.optimizer.step()
+                    pbar.update(1)
+                
+                # optimizer update
+                self.scheduler.step(sum(losses) / len(losses))
+                pbar.close()
+                
+                self.full_task_eval(backbone, task)
+                self.indipendent_capacity_evaluation(backbone)
+                self.data_dependent_capacity_evaluation(backbone, [t.testloader for t in tasks])
+                self.algo_dependent_capacity_evaluation()
+            self.logger.increase_step()
+
+        return self.epochs</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="EdgeEmbedding.emtl.algorithms.AlternatingTraining"><code class="flex name class">
+<span>class <span class="ident">AlternatingTraining</span></span>
+<span>(</span><span>epochs: int, optimizer_fn: Callable[..., torch.optim.optimizer.Optimizer], optimizer_params: dict[str, any], **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+<p>Train a model on multiple tasks, one dataset pass at a time.
+This object will train a model for <code>epochs</code> epochs, where each epoch trains a branch on one
+given task's entire dataset. Therefore, given 3 tasks, to make sure each task' dataset is
+passed 10 times, one should specify 30 epochs.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>epochs</code></strong> :&ensp;<code>int</code></dt>
+<dd>number of epochs to train for all task</dd>
+<dt><strong><code>freeze_backbone</code></strong> :&ensp;<code>bool</code></dt>
+<dd>whether to train the heads only (True) or also the backbone (False).</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AlternatingTraining(TrainingAlgorithm):
+    def __init__(self,
+                epochs: int,
+                optimizer_fn: Callable[..., torch.optim.Optimizer],
+                optimizer_params: dict[str, any],
+                **kwargs) -&gt; None:
+        &#39;&#39;&#39;
+        Train a model on multiple tasks, one dataset pass at a time.
+        This object will train a model for `epochs` epochs, where each epoch trains a branch on one
+        given task&#39;s entire dataset. Therefore, given 3 tasks, to make sure each task&#39; dataset is
+        passed 10 times, one should specify 30 epochs.
+
+        Args:
+            epochs (int): number of epochs to train for all task
+            freeze_backbone (bool): whether to train the heads only (True) or also the backbone (False).
+        &#39;&#39;&#39;
+        super(AlternatingTraining, self).__init__(epochs, optimizer_fn, optimizer_params, **kwargs)
+    
+    def execute(self, backbone: torch.nn.Module, tasks: list[Task], epochs_passed: int) -&gt; int:
+        &#39;&#39;&#39;
+        Train the backbone and all the heads in all the tasks.
+
+        Args:
+            backbone (torch.nn.Module): backbone model to train that extracts features.
+            tasks (list[Task]): list of tasks with datasets and specialized heads to train.
+        &#39;&#39;&#39;
+        if not self.optimizer_is_configured:
+            self.configure_optimizer(backbone)
+        
+        # freeze the backbone if specified
+        for param in backbone.parameters():
+            param.requires_grad = not self.freeze_backbone
+
+        for epoch in trange(epochs_passed, self.epochs + epochs_passed, desc = &#39;Epochs&#39;, leave=False):
+            for task in tasks:
+                backbone.train()
+                is_last_batch = False
+                losses = []
+                pbar = tqdm(total=len(task.trainloader), desc=task.name+&#39; train&#39;)
+                
+                # full pass over train dataset
+                while not is_last_batch:
+                    # foward + backward pass
+                    self.optimizer.zero_grad()
+                    is_last_batch, loss = task.train_step(backbone)
+
+                    # backbone weights update
+                    losses.append(loss)
+                    self.optimizer.step()
+                    pbar.update(1)
+                
+                # optimizer update
+                self.scheduler.step(sum(losses) / len(losses))
+                pbar.close()
+                
+                self.full_task_eval(backbone, task)
+                self.indipendent_capacity_evaluation(backbone)
+                self.data_dependent_capacity_evaluation(backbone, [t.testloader for t in tasks])
+                self.algo_dependent_capacity_evaluation()
+            self.logger.increase_step()
+
+        return self.epochs</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm">TrainingAlgorithm</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="EdgeEmbedding.emtl.algorithms.AlternatingTraining.device"><code class="name">var <span class="ident">device</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.AlternatingTraining.epochs"><code class="name">var <span class="ident">epochs</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.AlternatingTraining.logger"><code class="name">var <span class="ident">logger</span> : emtl.utils.Logger</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.AlternatingTraining.min_adk"><code class="name">var <span class="ident">min_adk</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="EdgeEmbedding.emtl.algorithms.AlternatingTraining.execute"><code class="name flex">
+<span>def <span class="ident">execute</span></span>(<span>self, backbone: torch.nn.modules.module.Module, tasks: list[emtl.tasks.Task], epochs_passed: int) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Train the backbone and all the heads in all the tasks.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>backbone</code></strong> :&ensp;<code>torch.nn.Module</code></dt>
+<dd>backbone model to train that extracts features.</dd>
+<dt><strong><code>tasks</code></strong> :&ensp;<code>list[Task]</code></dt>
+<dd>list of tasks with datasets and specialized heads to train.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def execute(self, backbone: torch.nn.Module, tasks: list[Task], epochs_passed: int) -&gt; int:
+    &#39;&#39;&#39;
+    Train the backbone and all the heads in all the tasks.
+
+    Args:
+        backbone (torch.nn.Module): backbone model to train that extracts features.
+        tasks (list[Task]): list of tasks with datasets and specialized heads to train.
+    &#39;&#39;&#39;
+    if not self.optimizer_is_configured:
+        self.configure_optimizer(backbone)
+    
+    # freeze the backbone if specified
+    for param in backbone.parameters():
+        param.requires_grad = not self.freeze_backbone
+
+    for epoch in trange(epochs_passed, self.epochs + epochs_passed, desc = &#39;Epochs&#39;, leave=False):
+        for task in tasks:
+            backbone.train()
+            is_last_batch = False
+            losses = []
+            pbar = tqdm(total=len(task.trainloader), desc=task.name+&#39; train&#39;)
+            
+            # full pass over train dataset
+            while not is_last_batch:
+                # foward + backward pass
+                self.optimizer.zero_grad()
+                is_last_batch, loss = task.train_step(backbone)
+
+                # backbone weights update
+                losses.append(loss)
+                self.optimizer.step()
+                pbar.update(1)
+            
+            # optimizer update
+            self.scheduler.step(sum(losses) / len(losses))
+            pbar.close()
+            
+            self.full_task_eval(backbone, task)
+            self.indipendent_capacity_evaluation(backbone)
+            self.data_dependent_capacity_evaluation(backbone, [t.testloader for t in tasks])
+            self.algo_dependent_capacity_evaluation()
+        self.logger.increase_step()
+
+    return self.epochs</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm">TrainingAlgorithm</a></b></code>:
+<ul class="hlist">
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.algo_dependent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.algo_dependent_capacity_evaluation">algo_dependent_capacity_evaluation</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_all_rmcs" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_all_rmcs">compute_all_rmcs</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_individual_rmc" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_individual_rmc">compute_individual_rmc</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.data_dependent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.data_dependent_capacity_evaluation">data_dependent_capacity_evaluation</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.full_task_eval" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.full_task_eval">full_task_eval</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.indipendent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.indipendent_capacity_evaluation">indipendent_capacity_evaluation</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.DummyLRScheduler"><code class="flex name class">
+<span>class <span class="ident">DummyLRScheduler</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DummyLRScheduler:
+    def __init__(self, *args, **kwargs) -&gt; None:
+        pass
+    
+    def step(self, *args, **kwargs) -&gt; None:
+        pass</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="EdgeEmbedding.emtl.algorithms.DummyLRScheduler.step"><code class="name flex">
+<span>def <span class="ident">step</span></span>(<span>self, *args, **kwargs) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def step(self, *args, **kwargs) -&gt; None:
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.SequentialTraining"><code class="flex name class">
+<span>class <span class="ident">SequentialTraining</span></span>
+<span>(</span><span>epochs: int, optimizer_fn: Callable[..., torch.optim.optimizer.Optimizer], optimizer_params: dict[str, any], **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+<p>Train a model one task at a time.
+This object will train a model for <code>epochs</code> epochs on each one of the given tasks, one task
+at a time, in the same order they are given. Note that accuracy on earlier tasks may degrade
+as new tasks are used. </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>epochs</code></strong> :&ensp;<code>int</code></dt>
+<dd>number of epochs to train for each task</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SequentialTraining(TrainingAlgorithm):    
+    def __init__(self,
+                epochs: int,
+                optimizer_fn: Callable[..., torch.optim.Optimizer],
+                optimizer_params: dict[str, any],
+                **kwargs) -&gt; None:
+        &#39;&#39;&#39;
+        Train a model one task at a time.
+        This object will train a model for `epochs` epochs on each one of the given tasks, one task
+        at a time, in the same order they are given. Note that accuracy on earlier tasks may degrade
+        as new tasks are used. 
+
+        Args:
+            epochs (int): number of epochs to train for each task
+        &#39;&#39;&#39;
+        super(SequentialTraining, self).__init__(epochs, optimizer_fn, optimizer_params, **kwargs)
+    
+
+    def execute(self, backbone: torch.nn.Module, tasks: list[Task], epochs_passed: int) -&gt; None:
+        &#39;&#39;&#39;
+        Train the backbone and all the heads in all the tasks.
+
+        Args:
+            backbone (torch.nn.Module): backbone model to train that extracts features.
+            tasks (list[Task]): list of tasks with datasets and specialized heads to train.
+            freeze_backbone (bool): whether to train
+        &#39;&#39;&#39;
+        if not self.optimizer_is_configured:
+            self.configure_optimizer(backbone)
+        
+        # freeze the backbone if specified
+        for param in backbone.parameters():
+            param.requires_grad = not self.freeze_backbone
+
+        # train one task at a time for given epochs
+        for task in tasks:
+            for epoch in trange(epochs_passed, self.epochs + epochs_passed, desc = task.name):
+                backbone.train()
+                is_last_batch = False
+                losses = []
+
+                # full pass over train dataset
+                while not is_last_batch:
+                    # foward + backward pass
+                    self.optimizer.zero_grad()
+                    is_last_batch, loss = task.train_step(backbone)
+
+                    # backbone weights update
+                    losses.append(loss)
+                    self.optimizer.step()
+                
+                # optimizer update
+                self.scheduler.step(sum(losses) / len(losses))
+
+                # log / eval
+                self.full_task_eval(backbone, task)
+                self.indipendent_capacity_evaluation(backbone)
+                self.data_dependent_capacity_evaluation(backbone, [t.testloader for t in tasks])
+                self.algo_dependent_capacity_evaluation()
+                self.logger.increase_step()
+
+        return self.epochs</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm">TrainingAlgorithm</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="EdgeEmbedding.emtl.algorithms.SequentialTraining.device"><code class="name">var <span class="ident">device</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.SequentialTraining.epochs"><code class="name">var <span class="ident">epochs</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.SequentialTraining.logger"><code class="name">var <span class="ident">logger</span> : emtl.utils.Logger</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.SequentialTraining.min_adk"><code class="name">var <span class="ident">min_adk</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="EdgeEmbedding.emtl.algorithms.SequentialTraining.execute"><code class="name flex">
+<span>def <span class="ident">execute</span></span>(<span>self, backbone: torch.nn.modules.module.Module, tasks: list[emtl.tasks.Task], epochs_passed: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Train the backbone and all the heads in all the tasks.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>backbone</code></strong> :&ensp;<code>torch.nn.Module</code></dt>
+<dd>backbone model to train that extracts features.</dd>
+<dt><strong><code>tasks</code></strong> :&ensp;<code>list[Task]</code></dt>
+<dd>list of tasks with datasets and specialized heads to train.</dd>
+<dt><strong><code>freeze_backbone</code></strong> :&ensp;<code>bool</code></dt>
+<dd>whether to train</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def execute(self, backbone: torch.nn.Module, tasks: list[Task], epochs_passed: int) -&gt; None:
+    &#39;&#39;&#39;
+    Train the backbone and all the heads in all the tasks.
+
+    Args:
+        backbone (torch.nn.Module): backbone model to train that extracts features.
+        tasks (list[Task]): list of tasks with datasets and specialized heads to train.
+        freeze_backbone (bool): whether to train
+    &#39;&#39;&#39;
+    if not self.optimizer_is_configured:
+        self.configure_optimizer(backbone)
+    
+    # freeze the backbone if specified
+    for param in backbone.parameters():
+        param.requires_grad = not self.freeze_backbone
+
+    # train one task at a time for given epochs
+    for task in tasks:
+        for epoch in trange(epochs_passed, self.epochs + epochs_passed, desc = task.name):
+            backbone.train()
+            is_last_batch = False
+            losses = []
+
+            # full pass over train dataset
+            while not is_last_batch:
+                # foward + backward pass
+                self.optimizer.zero_grad()
+                is_last_batch, loss = task.train_step(backbone)
+
+                # backbone weights update
+                losses.append(loss)
+                self.optimizer.step()
+            
+            # optimizer update
+            self.scheduler.step(sum(losses) / len(losses))
+
+            # log / eval
+            self.full_task_eval(backbone, task)
+            self.indipendent_capacity_evaluation(backbone)
+            self.data_dependent_capacity_evaluation(backbone, [t.testloader for t in tasks])
+            self.algo_dependent_capacity_evaluation()
+            self.logger.increase_step()
+
+    return self.epochs</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm">TrainingAlgorithm</a></b></code>:
+<ul class="hlist">
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.algo_dependent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.algo_dependent_capacity_evaluation">algo_dependent_capacity_evaluation</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_all_rmcs" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_all_rmcs">compute_all_rmcs</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_individual_rmc" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_individual_rmc">compute_individual_rmc</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.data_dependent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.data_dependent_capacity_evaluation">data_dependent_capacity_evaluation</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.full_task_eval" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.full_task_eval">full_task_eval</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.indipendent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.indipendent_capacity_evaluation">indipendent_capacity_evaluation</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm"><code class="flex name class">
+<span>class <span class="ident">TrainingAlgorithm</span></span>
+<span>(</span><span>epochs: int, optimizer_fn: Callable[..., torch.optim.optimizer.Optimizer], optimizer_params: dict[str, any], scheduler_fn: Callable[..., torch.optim.lr_scheduler._LRScheduler] = EdgeEmbedding.emtl.algorithms.DummyLRScheduler, scheduler_params: dict[str, any] = {}, device: str = 'cpu', rmc_lookback: int = 5, logger: emtl.utils.Logger = &lt;emtl.utils.Logger object&gt;, freeze_backbone: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+<p>Abstract class to define the common behavior of a training algorithm.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>device</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>device to move data to. Defaults to 'cpu'.</dd>
+<dt><strong><code>rmc_lookback</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>epochs window to use to calculate RMC. Defaults to 5.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TrainingAlgorithm(ABC):
+    device: str
+    logger: Logger
+    epochs: int
+    min_adk: float = 1
+
+    def __init__(self,
+                epochs: int,
+                optimizer_fn: Callable[..., torch.optim.Optimizer],
+                optimizer_params: dict[str, any],
+                scheduler_fn: Callable[..., torch.optim.lr_scheduler._LRScheduler] = DummyLRScheduler,
+                scheduler_params: dict[str, any] = {},
+                device: str = &#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;, 
+                rmc_lookback: int = 5,
+                logger: Logger = Logger(),
+                freeze_backbone: bool = False
+                ) -&gt; None:
+        &#39;&#39;&#39;
+        Abstract class to define the common behavior of a training algorithm.
+
+        Args:
+            device (str, optional): device to move data to. Defaults to &#39;cpu&#39;.
+            rmc_lookback (int, optional): epochs window to use to calculate RMC. Defaults to 5.
+        &#39;&#39;&#39;
+        self.epochs = epochs
+        self.optimizer_fn = optimizer_fn
+        self.scheduler_fn = scheduler_fn
+        self.optimizer_params = optimizer_params
+        self.scheduler_params = scheduler_params
+
+        self.device = device
+        self.rmc_lookback = rmc_lookback
+        self.logger = logger
+        self.freeze_backbone = freeze_backbone
+
+        self.losses = {}
+        self.rmcs = {}
+        self.non_blocking_ops = device.lower() != &#39;cpu&#39;
+        self.optimizer_is_configured = False
+    
+
+    def configure_optimizer(self, backbone: torch.nn.Module) -&gt; None:
+        self.optimizer_is_configured = True
+        self.optimizer = self.optimizer_fn(backbone.parameters(), **self.optimizer_params)
+        self.scheduler = self.scheduler_fn(self.optimizer, **self.scheduler_params)
+    
+
+    def reset_optimizers(self, backbone: torch.nn.Module) -&gt; None:
+        self.configure_optimizer(backbone)
+
+    
+    def indipendent_capacity_evaluation(self, backbone: torch.nn.Module, min_t: float = 0.001) -&gt; None:
+        &#39;&#39;&#39;
+        Evaluate the capacity of the model without any dependencies.
+        This method evaluates the capacity based on what percentage of the model&#39;s weights are
+        weakly activated: the more weights are close to 0, the more capacity the model has left.
+        The percentage is that of weights less than one standard deviation from the mean of that layer.
+        Calculations are made layer-wise.
+
+        Args:
+            backbone (torch.nn.Module): model that generates features.
+            min_t (float): minimum threshold to consider; a smaller one won&#39;t be picked.
+        &#39;&#39;&#39;
+        backbone.eval()
+
+        # we keep two counts: the # of small weights, and the # of all weights
+        # for each layer, we find the mean and standard deviation, and count the weigts &lt; 1 standard dev
+        ratios = []
+
+        for _, parameters in backbone.named_parameters():
+            absolute_values = abs(parameters).detach().flatten()
+            mean = torch.mean(absolute_values)
+            std = torch.std(absolute_values)
+            threshold = max(mean - std, min_t)
+
+            small = (absolute_values &lt;= threshold).sum()
+            total = len(absolute_values)
+            ratios.append((small / total).item())
+
+        self.logger.log({&#39;I-Capacity&#39;: sum(ratios) / len(ratios)})
+
+
+    def data_dependent_capacity_evaluation(self, 
+            backbone: torch.nn.Module, 
+            dataloaders: Union[list[torch.utils.data.DataLoader], torch.utils.data.DataLoader]
+            ) -&gt; None:
+        &#39;&#39;&#39;
+        Evaluate the capacity of a model given a representative sample of data.
+        Given a single or multiple dataloaders, it runs through each of them and stacks the predictions 
+        of the model. Then, given those predictions, or features, it computes several capacity metrics.
+        This method may take some time to run.
+
+        Args:
+            backbone (torch.nn.Module): model that generates features.
+            dataloaders (Union[list[torch.utils.data.DataLoader], torch.utils.data.DataLoader]): 
+                a single dataloader or a list of dataloaders.
+        &#39;&#39;&#39;
+        backbone.eval()
+        
+        # make sure you have either one dataset or a list of datasets
+        if not isinstance(dataloaders, list):
+            dataloaders = [dataloaders]
+        outputs = []
+        
+        # now produce and save features for all passed data
+        with torch.no_grad():
+            for dataloader in dataloaders:
+                for inputs, _ in dataloader:
+                    features = backbone(inputs.to(self.device, non_blocking=self.non_blocking_ops))
+                    outputs.append(features.cpu())
+        
+        # create a [d x n] tensor (d = # of features, n = sum of dataloaders lengths)
+        outputs = torch.vstack(outputs).T
+
+        # compute and log capacity metrics
+        entropy = normalized_entropy(outputs, nbins=100)
+        pearson = average_pearson_product_moment_correlation_coefficient(outputs)
+
+        self.logger.log({
+            &#39;Entropy&#39;: entropy,
+            &#39;Correlation&#39;: pearson,
+            &#39;DD-Capacity&#39;: ((pearson - entropy + 1) / 2)
+        })
+
+
+    def algo_dependent_capacity_evaluation(self, min_t: float = 0.01) -&gt; None:
+        &#39;&#39;&#39;
+        Evaluate the capacity of a model given its past performance while training with this algo.
+        This method takes no arguments because it&#39;s using what the algorithm has already computed
+        while training the backbone/heads. 
+        This method simply gives the percentage of tasks for which the RMC is above 0. 
+        Could be improved in the future to consider a threshold.
+        &#39;&#39;&#39;
+        if len(self.rmcs) == 0:
+            self.logger.log({&#39;AD-Capacity&#39;: 1})
+            return
+        
+        positive_count = len([rmc for rmc in self.rmcs.values() if rmc &gt; min_t])
+        total = len(self.rmcs)
+        capacity = positive_count / total
+        
+        # make it no less than min existing one
+        capacity = min(capacity, self.min_adk)
+        self.min_adk = capacity
+
+        self.logger.log({&#39;AD-Capacity&#39;: capacity})
+
+
+    def full_task_eval(self, backbone: torch.nn.Module, task: Task) -&gt; None:
+        &#39;&#39;&#39;
+        Perform a full evaluation of the backbone model.
+        This method takes in either a SimpleTask or a MultiHeadedDatasetTask, and for each task
+        within, performs an evaluation pass. Evaluation is done on both the trainset and the testset.
+
+        Args:
+            backbone (torch.nn.Module): backbone model to evaluate.
+            task (Task): task to evaluate the backbone for.
+        &#39;&#39;&#39;
+        backbone.eval()
+        
+        # compute dictionaries of &lt;metric_name, value&gt; pairs 
+        train_metrics = task.eval(backbone, set=&#39;train&#39;)
+        test_metrics  = task.eval(backbone, set=&#39;test&#39;)
+        rmcs = self.compute_all_rmcs(task.name, train_metrics)
+
+        # rename the dictionary keys to include the main task name (dataset) and split
+        train_metrics = {f&#39;{task.name} train {mname}&#39; : v for mname, v in train_metrics.items()}
+        test_metrics  = {f&#39;{task.name} test {mname}&#39;  : v for mname, v in test_metrics.items()}
+        rmcs          = {f&#39;{mname} RMC&#39; : v for mname, v in rmcs.items()}
+
+        # log all metrics
+        self.logger.log(train_metrics)
+        self.logger.log(test_metrics)
+        self.logger.log(rmcs)
+
+
+    def compute_all_rmcs(self, dataset_name: str, metrics_dict: dict[str, float]) -&gt; dict[str, float]:
+        &#39;&#39;&#39;
+        Compute Residual Model Capacity metrics for all losses in dictionary.
+
+        Args:
+            dataset_name (str): name of the main task / dataset.
+            metrics_dict (dict[str, float]): dictionary that should contain some &#39;... loss&#39; metrics.
+
+        Returns:
+            dict[str, float]: a named dictionary of task losses (named by dataset + task name)
+        &#39;&#39;&#39;
+        rmcs_dict = {}
+
+        for metric_name in metrics_dict:
+            # name could be like &#34;BBox loss&#34; or just &#34;loss&#34;
+            metric_name_components = metric_name.split(&#39; &#39;)
+            mname = metric_name_components[-1]
+            task_name = (&#39; &#39; + metric_name_components[0]) if (len(metric_name_components) == 2) else &#39;&#39;
+
+            # proceed forward only if the metric is indeed a loss
+            if mname == &#39;loss&#39;:
+                loss_value = metrics_dict[metric_name]
+                log_name = f&#39;{dataset_name}{task_name}&#39;
+
+                rmc = self.compute_individual_rmc(log_name, loss_value)
+
+                rmcs_dict[log_name] = rmc
+                self.rmcs[log_name] = rmc
+
+        return rmcs_dict
+
+
+    def compute_individual_rmc(self, log_name: str, loss: float) -&gt; float:
+        &#39;&#39;&#39;
+        Method to compute the Residual Model Capacity with respect to a single task.
+        This method requires the task name to search in its dictionary of saved losses, and the
+        latest loss for that task (which gets saved for the next computation).
+
+        Args:
+            log_name (str): key of the dictionary.
+            loss (float): latest loss value for the key.
+
+        Returns:
+            float: newly computed RMC value (should be saved separately)
+        &#39;&#39;&#39;
+        # first time computing RMC, set it to the max (=1) and store the loss
+        if log_name not in self.losses:
+            self.losses[log_name] = deque([], maxlen=self.rmc_lookback)
+            rmc = 1
+        
+        # as long as len(losses) &lt; rmc_lookback, RMC = 1
+        elif len(self.losses[log_name]) &lt; self.rmc_lookback:
+            rmc = 1
+        
+        # this is the actual computation of RMC
+        else:
+            old_loss = self.losses[log_name][0]
+            rmc = (old_loss - loss) / old_loss
+            rmc = max(0, rmc)
+
+        self.losses[log_name].append(loss)
+        
+        return rmc
+    
+
+    @abstractmethod
+    def execute(self, models: list[torch.nn.Module], tasks: list[Task]) -&gt; None:
+        &#39;&#39;&#39;
+        Abstract method to execute the training algorithm.
+        This method requires a list of tasks and the models to execute them. This behavior may be
+        changed in the future (e.g., using head indices to specify where to route tasks within a 
+        model, or attaching heads to the tasks and sequentially passing through the backbone and 
+        the head).
+
+        Args:
+            models (list[torch.nn.Module]): list of models to execute tasks with.
+            tasks (list[Task]): list of tasks to execute.
+
+        Raises:
+            NotImplementedError: must create a subclass of this and implement the method.
+        &#39;&#39;&#39;
+        raise NotImplementedError()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="EdgeEmbedding.emtl.algorithms.AlternatingTraining" href="#EdgeEmbedding.emtl.algorithms.AlternatingTraining">AlternatingTraining</a></li>
+<li><a title="EdgeEmbedding.emtl.algorithms.SequentialTraining" href="#EdgeEmbedding.emtl.algorithms.SequentialTraining">SequentialTraining</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.device"><code class="name">var <span class="ident">device</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.epochs"><code class="name">var <span class="ident">epochs</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.logger"><code class="name">var <span class="ident">logger</span> : emtl.utils.Logger</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.min_adk"><code class="name">var <span class="ident">min_adk</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.algo_dependent_capacity_evaluation"><code class="name flex">
+<span>def <span class="ident">algo_dependent_capacity_evaluation</span></span>(<span>self, min_t: float = 0.01) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Evaluate the capacity of a model given its past performance while training with this algo.
+This method takes no arguments because it's using what the algorithm has already computed
+while training the backbone/heads.
+This method simply gives the percentage of tasks for which the RMC is above 0.
+Could be improved in the future to consider a threshold.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def algo_dependent_capacity_evaluation(self, min_t: float = 0.01) -&gt; None:
+    &#39;&#39;&#39;
+    Evaluate the capacity of a model given its past performance while training with this algo.
+    This method takes no arguments because it&#39;s using what the algorithm has already computed
+    while training the backbone/heads. 
+    This method simply gives the percentage of tasks for which the RMC is above 0. 
+    Could be improved in the future to consider a threshold.
+    &#39;&#39;&#39;
+    if len(self.rmcs) == 0:
+        self.logger.log({&#39;AD-Capacity&#39;: 1})
+        return
+    
+    positive_count = len([rmc for rmc in self.rmcs.values() if rmc &gt; min_t])
+    total = len(self.rmcs)
+    capacity = positive_count / total
+    
+    # make it no less than min existing one
+    capacity = min(capacity, self.min_adk)
+    self.min_adk = capacity
+
+    self.logger.log({&#39;AD-Capacity&#39;: capacity})</code></pre>
+</details>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_all_rmcs"><code class="name flex">
+<span>def <span class="ident">compute_all_rmcs</span></span>(<span>self, dataset_name: str, metrics_dict: dict[str, float]) ‑> dict[str, float]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compute Residual Model Capacity metrics for all losses in dictionary.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dataset_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>name of the main task / dataset.</dd>
+<dt><strong><code>metrics_dict</code></strong> :&ensp;<code>dict[str, float]</code></dt>
+<dd>dictionary that should contain some '&hellip; loss' metrics.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict[str, float]</code></dt>
+<dd>a named dictionary of task losses (named by dataset + task name)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_all_rmcs(self, dataset_name: str, metrics_dict: dict[str, float]) -&gt; dict[str, float]:
+    &#39;&#39;&#39;
+    Compute Residual Model Capacity metrics for all losses in dictionary.
+
+    Args:
+        dataset_name (str): name of the main task / dataset.
+        metrics_dict (dict[str, float]): dictionary that should contain some &#39;... loss&#39; metrics.
+
+    Returns:
+        dict[str, float]: a named dictionary of task losses (named by dataset + task name)
+    &#39;&#39;&#39;
+    rmcs_dict = {}
+
+    for metric_name in metrics_dict:
+        # name could be like &#34;BBox loss&#34; or just &#34;loss&#34;
+        metric_name_components = metric_name.split(&#39; &#39;)
+        mname = metric_name_components[-1]
+        task_name = (&#39; &#39; + metric_name_components[0]) if (len(metric_name_components) == 2) else &#39;&#39;
+
+        # proceed forward only if the metric is indeed a loss
+        if mname == &#39;loss&#39;:
+            loss_value = metrics_dict[metric_name]
+            log_name = f&#39;{dataset_name}{task_name}&#39;
+
+            rmc = self.compute_individual_rmc(log_name, loss_value)
+
+            rmcs_dict[log_name] = rmc
+            self.rmcs[log_name] = rmc
+
+    return rmcs_dict</code></pre>
+</details>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_individual_rmc"><code class="name flex">
+<span>def <span class="ident">compute_individual_rmc</span></span>(<span>self, log_name: str, loss: float) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method to compute the Residual Model Capacity with respect to a single task.
+This method requires the task name to search in its dictionary of saved losses, and the
+latest loss for that task (which gets saved for the next computation).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>log_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the dictionary.</dd>
+<dt><strong><code>loss</code></strong> :&ensp;<code>float</code></dt>
+<dd>latest loss value for the key.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>newly computed RMC value (should be saved separately)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_individual_rmc(self, log_name: str, loss: float) -&gt; float:
+    &#39;&#39;&#39;
+    Method to compute the Residual Model Capacity with respect to a single task.
+    This method requires the task name to search in its dictionary of saved losses, and the
+    latest loss for that task (which gets saved for the next computation).
+
+    Args:
+        log_name (str): key of the dictionary.
+        loss (float): latest loss value for the key.
+
+    Returns:
+        float: newly computed RMC value (should be saved separately)
+    &#39;&#39;&#39;
+    # first time computing RMC, set it to the max (=1) and store the loss
+    if log_name not in self.losses:
+        self.losses[log_name] = deque([], maxlen=self.rmc_lookback)
+        rmc = 1
+    
+    # as long as len(losses) &lt; rmc_lookback, RMC = 1
+    elif len(self.losses[log_name]) &lt; self.rmc_lookback:
+        rmc = 1
+    
+    # this is the actual computation of RMC
+    else:
+        old_loss = self.losses[log_name][0]
+        rmc = (old_loss - loss) / old_loss
+        rmc = max(0, rmc)
+
+    self.losses[log_name].append(loss)
+    
+    return rmc</code></pre>
+</details>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.configure_optimizer"><code class="name flex">
+<span>def <span class="ident">configure_optimizer</span></span>(<span>self, backbone: torch.nn.modules.module.Module) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def configure_optimizer(self, backbone: torch.nn.Module) -&gt; None:
+    self.optimizer_is_configured = True
+    self.optimizer = self.optimizer_fn(backbone.parameters(), **self.optimizer_params)
+    self.scheduler = self.scheduler_fn(self.optimizer, **self.scheduler_params)</code></pre>
+</details>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.data_dependent_capacity_evaluation"><code class="name flex">
+<span>def <span class="ident">data_dependent_capacity_evaluation</span></span>(<span>self, backbone: torch.nn.modules.module.Module, dataloaders: Union[list[torch.utils.data.dataloader.DataLoader], torch.utils.data.dataloader.DataLoader]) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Evaluate the capacity of a model given a representative sample of data.
+Given a single or multiple dataloaders, it runs through each of them and stacks the predictions
+of the model. Then, given those predictions, or features, it computes several capacity metrics.
+This method may take some time to run.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>backbone</code></strong> :&ensp;<code>torch.nn.Module</code></dt>
+<dd>model that generates features.</dd>
+<dt><strong><code>dataloaders</code></strong> :&ensp;<code>Union[list[torch.utils.data.DataLoader], torch.utils.data.DataLoader]</code></dt>
+<dd>a single dataloader or a list of dataloaders.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def data_dependent_capacity_evaluation(self, 
+        backbone: torch.nn.Module, 
+        dataloaders: Union[list[torch.utils.data.DataLoader], torch.utils.data.DataLoader]
+        ) -&gt; None:
+    &#39;&#39;&#39;
+    Evaluate the capacity of a model given a representative sample of data.
+    Given a single or multiple dataloaders, it runs through each of them and stacks the predictions 
+    of the model. Then, given those predictions, or features, it computes several capacity metrics.
+    This method may take some time to run.
+
+    Args:
+        backbone (torch.nn.Module): model that generates features.
+        dataloaders (Union[list[torch.utils.data.DataLoader], torch.utils.data.DataLoader]): 
+            a single dataloader or a list of dataloaders.
+    &#39;&#39;&#39;
+    backbone.eval()
+    
+    # make sure you have either one dataset or a list of datasets
+    if not isinstance(dataloaders, list):
+        dataloaders = [dataloaders]
+    outputs = []
+    
+    # now produce and save features for all passed data
+    with torch.no_grad():
+        for dataloader in dataloaders:
+            for inputs, _ in dataloader:
+                features = backbone(inputs.to(self.device, non_blocking=self.non_blocking_ops))
+                outputs.append(features.cpu())
+    
+    # create a [d x n] tensor (d = # of features, n = sum of dataloaders lengths)
+    outputs = torch.vstack(outputs).T
+
+    # compute and log capacity metrics
+    entropy = normalized_entropy(outputs, nbins=100)
+    pearson = average_pearson_product_moment_correlation_coefficient(outputs)
+
+    self.logger.log({
+        &#39;Entropy&#39;: entropy,
+        &#39;Correlation&#39;: pearson,
+        &#39;DD-Capacity&#39;: ((pearson - entropy + 1) / 2)
+    })</code></pre>
+</details>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.execute"><code class="name flex">
+<span>def <span class="ident">execute</span></span>(<span>self, models: list[torch.nn.modules.module.Module], tasks: list[emtl.tasks.Task]) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract method to execute the training algorithm.
+This method requires a list of tasks and the models to execute them. This behavior may be
+changed in the future (e.g., using head indices to specify where to route tasks within a
+model, or attaching heads to the tasks and sequentially passing through the backbone and
+the head).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>models</code></strong> :&ensp;<code>list[torch.nn.Module]</code></dt>
+<dd>list of models to execute tasks with.</dd>
+<dt><strong><code>tasks</code></strong> :&ensp;<code>list[Task]</code></dt>
+<dd>list of tasks to execute.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>NotImplementedError</code></dt>
+<dd>must create a subclass of this and implement the method.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def execute(self, models: list[torch.nn.Module], tasks: list[Task]) -&gt; None:
+    &#39;&#39;&#39;
+    Abstract method to execute the training algorithm.
+    This method requires a list of tasks and the models to execute them. This behavior may be
+    changed in the future (e.g., using head indices to specify where to route tasks within a 
+    model, or attaching heads to the tasks and sequentially passing through the backbone and 
+    the head).
+
+    Args:
+        models (list[torch.nn.Module]): list of models to execute tasks with.
+        tasks (list[Task]): list of tasks to execute.
+
+    Raises:
+        NotImplementedError: must create a subclass of this and implement the method.
+    &#39;&#39;&#39;
+    raise NotImplementedError()</code></pre>
+</details>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.full_task_eval"><code class="name flex">
+<span>def <span class="ident">full_task_eval</span></span>(<span>self, backbone: torch.nn.modules.module.Module, task: emtl.tasks.Task) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Perform a full evaluation of the backbone model.
+This method takes in either a SimpleTask or a MultiHeadedDatasetTask, and for each task
+within, performs an evaluation pass. Evaluation is done on both the trainset and the testset.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>backbone</code></strong> :&ensp;<code>torch.nn.Module</code></dt>
+<dd>backbone model to evaluate.</dd>
+<dt><strong><code>task</code></strong> :&ensp;<code>Task</code></dt>
+<dd>task to evaluate the backbone for.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def full_task_eval(self, backbone: torch.nn.Module, task: Task) -&gt; None:
+    &#39;&#39;&#39;
+    Perform a full evaluation of the backbone model.
+    This method takes in either a SimpleTask or a MultiHeadedDatasetTask, and for each task
+    within, performs an evaluation pass. Evaluation is done on both the trainset and the testset.
+
+    Args:
+        backbone (torch.nn.Module): backbone model to evaluate.
+        task (Task): task to evaluate the backbone for.
+    &#39;&#39;&#39;
+    backbone.eval()
+    
+    # compute dictionaries of &lt;metric_name, value&gt; pairs 
+    train_metrics = task.eval(backbone, set=&#39;train&#39;)
+    test_metrics  = task.eval(backbone, set=&#39;test&#39;)
+    rmcs = self.compute_all_rmcs(task.name, train_metrics)
+
+    # rename the dictionary keys to include the main task name (dataset) and split
+    train_metrics = {f&#39;{task.name} train {mname}&#39; : v for mname, v in train_metrics.items()}
+    test_metrics  = {f&#39;{task.name} test {mname}&#39;  : v for mname, v in test_metrics.items()}
+    rmcs          = {f&#39;{mname} RMC&#39; : v for mname, v in rmcs.items()}
+
+    # log all metrics
+    self.logger.log(train_metrics)
+    self.logger.log(test_metrics)
+    self.logger.log(rmcs)</code></pre>
+</details>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.indipendent_capacity_evaluation"><code class="name flex">
+<span>def <span class="ident">indipendent_capacity_evaluation</span></span>(<span>self, backbone: torch.nn.modules.module.Module, min_t: float = 0.001) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Evaluate the capacity of the model without any dependencies.
+This method evaluates the capacity based on what percentage of the model's weights are
+weakly activated: the more weights are close to 0, the more capacity the model has left.
+The percentage is that of weights less than one standard deviation from the mean of that layer.
+Calculations are made layer-wise.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>backbone</code></strong> :&ensp;<code>torch.nn.Module</code></dt>
+<dd>model that generates features.</dd>
+<dt><strong><code>min_t</code></strong> :&ensp;<code>float</code></dt>
+<dd>minimum threshold to consider; a smaller one won't be picked.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def indipendent_capacity_evaluation(self, backbone: torch.nn.Module, min_t: float = 0.001) -&gt; None:
+    &#39;&#39;&#39;
+    Evaluate the capacity of the model without any dependencies.
+    This method evaluates the capacity based on what percentage of the model&#39;s weights are
+    weakly activated: the more weights are close to 0, the more capacity the model has left.
+    The percentage is that of weights less than one standard deviation from the mean of that layer.
+    Calculations are made layer-wise.
+
+    Args:
+        backbone (torch.nn.Module): model that generates features.
+        min_t (float): minimum threshold to consider; a smaller one won&#39;t be picked.
+    &#39;&#39;&#39;
+    backbone.eval()
+
+    # we keep two counts: the # of small weights, and the # of all weights
+    # for each layer, we find the mean and standard deviation, and count the weigts &lt; 1 standard dev
+    ratios = []
+
+    for _, parameters in backbone.named_parameters():
+        absolute_values = abs(parameters).detach().flatten()
+        mean = torch.mean(absolute_values)
+        std = torch.std(absolute_values)
+        threshold = max(mean - std, min_t)
+
+        small = (absolute_values &lt;= threshold).sum()
+        total = len(absolute_values)
+        ratios.append((small / total).item())
+
+    self.logger.log({&#39;I-Capacity&#39;: sum(ratios) / len(ratios)})</code></pre>
+</details>
+</dd>
+<dt id="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.reset_optimizers"><code class="name flex">
+<span>def <span class="ident">reset_optimizers</span></span>(<span>self, backbone: torch.nn.modules.module.Module) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset_optimizers(self, backbone: torch.nn.Module) -&gt; None:
+    self.configure_optimizer(backbone)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="EdgeEmbedding.emtl" href="index.html">EdgeEmbedding.emtl</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="EdgeEmbedding.emtl.algorithms.AlternatingTraining" href="#EdgeEmbedding.emtl.algorithms.AlternatingTraining">AlternatingTraining</a></code></h4>
+<ul class="">
+<li><code><a title="EdgeEmbedding.emtl.algorithms.AlternatingTraining.device" href="#EdgeEmbedding.emtl.algorithms.AlternatingTraining.device">device</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.AlternatingTraining.epochs" href="#EdgeEmbedding.emtl.algorithms.AlternatingTraining.epochs">epochs</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.AlternatingTraining.execute" href="#EdgeEmbedding.emtl.algorithms.AlternatingTraining.execute">execute</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.AlternatingTraining.logger" href="#EdgeEmbedding.emtl.algorithms.AlternatingTraining.logger">logger</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.AlternatingTraining.min_adk" href="#EdgeEmbedding.emtl.algorithms.AlternatingTraining.min_adk">min_adk</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="EdgeEmbedding.emtl.algorithms.DummyLRScheduler" href="#EdgeEmbedding.emtl.algorithms.DummyLRScheduler">DummyLRScheduler</a></code></h4>
+<ul class="">
+<li><code><a title="EdgeEmbedding.emtl.algorithms.DummyLRScheduler.step" href="#EdgeEmbedding.emtl.algorithms.DummyLRScheduler.step">step</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="EdgeEmbedding.emtl.algorithms.SequentialTraining" href="#EdgeEmbedding.emtl.algorithms.SequentialTraining">SequentialTraining</a></code></h4>
+<ul class="">
+<li><code><a title="EdgeEmbedding.emtl.algorithms.SequentialTraining.device" href="#EdgeEmbedding.emtl.algorithms.SequentialTraining.device">device</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.SequentialTraining.epochs" href="#EdgeEmbedding.emtl.algorithms.SequentialTraining.epochs">epochs</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.SequentialTraining.execute" href="#EdgeEmbedding.emtl.algorithms.SequentialTraining.execute">execute</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.SequentialTraining.logger" href="#EdgeEmbedding.emtl.algorithms.SequentialTraining.logger">logger</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.SequentialTraining.min_adk" href="#EdgeEmbedding.emtl.algorithms.SequentialTraining.min_adk">min_adk</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm">TrainingAlgorithm</a></code></h4>
+<ul class="">
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.algo_dependent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.algo_dependent_capacity_evaluation">algo_dependent_capacity_evaluation</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_all_rmcs" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_all_rmcs">compute_all_rmcs</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_individual_rmc" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.compute_individual_rmc">compute_individual_rmc</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.configure_optimizer" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.configure_optimizer">configure_optimizer</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.data_dependent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.data_dependent_capacity_evaluation">data_dependent_capacity_evaluation</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.device" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.device">device</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.epochs" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.epochs">epochs</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.execute" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.execute">execute</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.full_task_eval" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.full_task_eval">full_task_eval</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.indipendent_capacity_evaluation" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.indipendent_capacity_evaluation">indipendent_capacity_evaluation</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.logger" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.logger">logger</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.min_adk" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.min_adk">min_adk</a></code></li>
+<li><code><a title="EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.reset_optimizers" href="#EdgeEmbedding.emtl.algorithms.TrainingAlgorithm.reset_optimizers">reset_optimizers</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
