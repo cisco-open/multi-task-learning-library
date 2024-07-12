@@ -3,7 +3,6 @@
     <img width="150px" src="https://i.postimg.cc/HWzrbmZX/Screenshot-20230301-054816.png">
 </p>
 <h1 style="text-align: center;">Easy Multi-Task Learning Library</h1>
-<p style="text-align: center;">https://wwwin-github.cisco.com/pages/chflemin/easy-mulit-tast-learning-library/</p>
 
 Easy Multi-Task Learning Library (EMTL) is a framework to simplify the prototyping and training processes for multi-task computer vision ML models. EMTL provides a set of interfaces and tools to modularize CV tasks and datasets into consumable objects and standardize models. These modularized objects are then assembled and given to a parameterized trainer, which will produce a complete trained model.
 
